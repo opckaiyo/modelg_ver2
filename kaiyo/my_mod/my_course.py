@@ -591,38 +591,38 @@ def course_ver5(set_speed, set_rot):
 
     # Uターン地点まで行く(海上)
     led_red()
-    go_yaw_onoff_iki(20, 40, set_diving=5)
+    go_yaw_onoff_iki(30, 250, set_diving=5)
     led_off()
 
     # Uターン地点まで行く(潜水)
     led_blue()
-    go_yaw_onoff_iki(50, 40, set_diving=90)
+    go_yaw_onoff_iki(50, 880, set_diving=60)
     led_off()
 
     # 浮上
     stop()
-    led_yellow()
+    led_green()
     up_down(60)
-    time.sleep(4)
+    time.sleep(5)
     stop()
     led_off()
 
     # Uターン
     # yaw(100, set_diving=False)
     led_purple()
-    yaw_rot(25)
+    yaw_rot(20)
     led_off()
 
     # 所定の深さまで沈む
-    diving_while(60)
+    diving_while(30)
     # スタート地点まで行く(潜水)
     led_blue()
-    go_yaw_onoff_kaeri(50, 70, set_diving=90)
+    go_yaw_onoff_kaeri(30, 800, set_diving=60)
     led_off()
 
     # スタート地点まで行く(海上)
     led_red()
-    go_yaw_onoff_kaeri(30, 40, set_diving=5)
+    go_yaw_onoff_kaeri(30, 400, set_diving=5)
     led_off()
 
     # 浮上

@@ -14,7 +14,7 @@ def get_log():
     vals = {}
     cnt = 0
 
-    file_name = "/kaiyo/log/181010_013247.txt"
+    file_name = "/kaiyo/log/181026_100133.txt"
     file = open(file_name, 'r')
     data = file.readline()
     data = ast.literal_eval(data)

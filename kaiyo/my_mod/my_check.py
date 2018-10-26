@@ -7,7 +7,7 @@ from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_
 from my_balance import yaw, go_yaw_time
 from my_rc import t10j
 from my_gpio import led_red, led_green, led_yellow, led_off
-
+from my_voice import jtalk
 # -------------------------------------------------------------------
 
 # プログラムを終了する手順
@@ -127,6 +127,30 @@ def operation_check():
             return 0
 
 
+# 取得した値を読み上げ
+def voice_check(val):
+    # print get_data("all")
+    data = get_data("all")
+    print data[val]
+    # voice_text = "角度"+str(data[val])
+    # print voice_text
+    # # jtalk(file_name="a", voice=str(voice_text))
+    time.sleep(1)
+
 # -------------------------------------------------------------------
 if __name__ == '__main__':
-    operation_check()
+    # operation_check()
+
+
+    while True:
+        # send_data("reboot")
+        try:
+            voice_check("yaw")
+
+            # go_back(50)
+            # up_down(20)
+            # go_back_each(10,10,0)
+            # dc_u( 100 )
+        except KeyboardInterrupt as e:
+            stop()
+            break

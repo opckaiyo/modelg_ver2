@@ -71,6 +71,10 @@ def dc_u( val ):
     pwm.set_pwm(dc_u_pwm, 0, val)
     pwm.set_pwm(dc_u_dir, 0, pone)
 
+def pump( val ):
+    val, pone = my_map(val)
+    pwm.set_pwm(dc_u_pwm, 0, val)
+    pwm.set_pwm(dc_u_dir, 0, pone)
 
 
 # 前進_後進(go_back)
@@ -122,6 +126,9 @@ def stop():
     pwm.set_pwm(dc_xl_pwm, 0, 0)
     pwm.set_pwm(dc_yr_pwm, 0, 0)
     pwm.set_pwm(dc_yl_pwm, 0, 0)
+    pwm.set_pwm(dc_u_pwm, 0, 0)
+
+def stop_pump():
     pwm.set_pwm(dc_u_pwm, 0, 0)
 
 def stop_go_back():
@@ -197,10 +204,13 @@ def my_map_br( val ):
 
 
 if __name__ == '__main__':
+
     while True:
         try:
-            # go_back(20)
-            go_back_each(10,10,0)
+            go_back(50)
+            # up_down(20)
+            # go_back_each(10,10,0)
+            # dc_u( 100 )
         except KeyboardInterrupt as e:
             stop()
             break

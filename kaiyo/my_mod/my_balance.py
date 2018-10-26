@@ -4,7 +4,7 @@ import time
 import sys
 sys.path.append("/kaiyo/my_mod")
 from my_get_serial import get_data, send_data
-from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca
+from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca, pump, stop_pump
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
 
 
@@ -476,11 +476,11 @@ def map_depth(val):
     # in_min = 0.6
     # in_max = 10
     # 宜野湾
-    # in_min = 0.6
-    # in_max = 7.6
+    in_min = 0.6
+    in_max = 7.6
     # プールでの値
-    in_min = 2
-    in_max = 7
+    # in_min = 2
+    # in_max = 7
 
     if val <= in_min: val = in_min
     if val >= in_max: val = in_max
@@ -536,6 +536,7 @@ def map_depth2(val):
 def go_yaw_onoff_iki(speed, set_rot, set_diving=True):
     set_rot_old = get_data("rot0")
     while True:
+        # pitch()
         if set_diving:
             diving(set_diving)
 
@@ -574,6 +575,7 @@ def go_yaw_onoff_iki(speed, set_rot, set_diving=True):
 def go_yaw_onoff_kaeri(speed, set_rot, set_diving=True):
     set_rot_old = get_data("rot0")
     while True:
+        pitch()
         if set_diving:
             diving(set_diving)
 
@@ -607,14 +609,26 @@ def go_yaw_onoff_kaeri(speed, set_rot, set_diving=True):
             stop()
             break
 
+def pitch():
+    now_val = get_data("roll")
+    print now_val
+
+    if now_val >= 0:
+        pump(100)
+        led_blue()
+    else:
+        stop_pump()
+        led_off()
 
 
 if __name__ == '__main__':
-    print "-------------------------------------------------------------"
-    # diving_test(70, 3)
-    # print map_depth(3.2)
-
-    for i in np.arange(0.01, 3.2, 0.1):
-        # print "i =", i
-        diving_test(80, i)
-        # print map_depth(i)
+    while True:
+        pitch()
+    # print "-------------------------------------------------------------"
+    # # diving_test(70, 3)
+    # # print map_depth(3.2)
+    #
+    # for i in np.arange(0.01, 3.2, 0.1):
+    #     # print "i =", i
+    #     diving_test(80, i)
+    #     # print map_depth(i)

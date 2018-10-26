@@ -9,7 +9,7 @@ import random
 
 import sys
 sys.path.append("/kaiyo/my_mod")
-# from my_get_serial import get_data, send_data, log
+from my_get_serial import get_data, send_data, log
 from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca
 # from test2 import go_yaw_simulato
 
@@ -31,7 +31,9 @@ def setLedEntry():
     var = request.json
     print
     # print "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",sorted(var.items())
-    print "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",var
+    # print "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",var
+    a = get_data("all")
+    print "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",a["flw0"],a["flw1"],a["flw2"]
     print
 
 
@@ -47,7 +49,7 @@ def setLedEntry():
 def main():
     print("Initialize port")
     print('Server Start')
-    run(host='192.168.11.4', port=8888, debug=True, eloader=True)
+    run(host='172.20.10.8', port=8888, debug=True, eloader=True)
 
 
 def atExit():

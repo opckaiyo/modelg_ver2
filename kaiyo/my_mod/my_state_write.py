@@ -7,5 +7,18 @@ def state_write(state):
     file.writelines(str(state) + " : " + str(datetime.now()) + "\n")
     file.close()
 
+
+def motor_write_open(val):
+    file = open('/kaiyo/log/motor_log.txt', 'w')
+    file.writelines("{'interval':0.01}\n")
+
+def motor_write(val):
+    file.writelines(str(val) + "\n")
+
+
+def motor_write_close():
+    file.close()
+
+
 if __name__ == '__main__':
     state_write("浮上")

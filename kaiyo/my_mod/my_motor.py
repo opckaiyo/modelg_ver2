@@ -3,6 +3,9 @@
 
 import time
 import Adafruit_PCA9685
+import sys
+sys.path.append("/kaiyo/my_mod")
+from my_state_write import state_write, motor_write, motor_write_close
 
 pwm = Adafruit_PCA9685.PCA9685()
 # pwm周波数設定
@@ -67,6 +70,7 @@ def dc_yl( val ):
     pwm.set_pwm(dc_yl_dir, 0, pone)
 
 def dc_u( val ):
+    motor_vals("dc_u", val)
     val, pone = my_map(val)
     pwm.set_pwm(dc_u_pwm, 0, val)
     pwm.set_pwm(dc_u_dir, 0, pone)
@@ -204,7 +208,6 @@ def my_map_br( val ):
 
 
 if __name__ == '__main__':
-
     while True:
         try:
             go_back(50)

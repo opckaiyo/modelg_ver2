@@ -1,2 +1,0 @@
-{'lipoC2': 8.15, 'temp': 25.81, 'lipoC3S3': 0.0, 'state': 'normal', 'rot1': 0, 'rot0': 0, 'rot3': 0, 'rot2': 0, 'depth': -0.14, 'yaw': 0.0, 'datetime': '2018-10-26 10:01:02.346436', 'mgs': 0, 'flw2': 0.0, 'flw1': 0.0, 'flw0': 0.0, 'time': 1.26, 'pitch': -29.21, 'roll': 48.94}
-{'lipoC2': 8.15, 'temp': 25.81, 'lipoC3S3': 0.0, 'state': 'normal', 'rot1': 0, 'rot0': 135, 'rot3': 0, 'rot2': 0, 'depth': -0.14, 'yaw': 0.01, 'datetime': '2018-10-26 10:01:05.873329', 'mgs': 0, 'flw2': 0.0, 'flw1': 0.0, 'flw0': 0.0, 'time': 1.36, 'pitch': -29.2, 'roll': 48.94}

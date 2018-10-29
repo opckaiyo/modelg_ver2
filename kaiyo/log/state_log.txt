@@ -608,3 +608,23 @@ global name 'time_sleep' is not defined : 2018-10-26 10:01:05.887747
 'duty0' : 2018-10-26 10:23:49.152598
 'duty0' : 2018-10-26 10:24:43.627300
 'duty0' : 2018-10-26 10:30:36.996181
+t10j() takes exactly 1 argument (0 given) : 2018-10-26 11:02:44.876494
+list indices must be integers, not str : 2018-10-26 11:19:34.436830
+global name 't10j_map' is not defined : 2018-10-26 11:28:50.919959
+'duty2' : 2018-10-26 11:40:32.115755
+1 : 2018-10-26 11:50:39.553244
+cannot concatenate 'str' and 'int' objects : 2018-10-26 13:27:50.304443
+global name 'vals' is not defined : 2018-10-26 13:55:13.851472
+bad operand type for unary +: 'str' : 2018-10-26 13:56:43.641460
+bad operand type for unary +: 'str' : 2018-10-26 13:57:17.373896
+'duty2' : 2018-10-26 13:58:01.706367
+global name 'led_red' is not defined : 2018-10-26 15:05:40.175200
+'duty2' : 2018-10-26 15:06:41.993996
+'dc_xr' : 2018-10-26 15:10:00.190392
+'dc_xr' : 2018-10-26 15:12:20.770516
+global name 'set_time' is not defined : 2018-10-26 15:20:26.087395
+invalid literal for int() with base 10: '' : 2018-10-26 15:23:08.035026
+'duty2' : 2018-10-26 15:23:23.450845
+I/O operation on closed file : 2018-10-26 15:29:37.932485
+I/O operation on closed file : 2018-10-26 15:31:22.766929
+unexpected EOF while parsing (<unknown>, line 0) : 2018-10-26 15:40:14.996074

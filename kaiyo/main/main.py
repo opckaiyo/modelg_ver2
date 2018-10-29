@@ -11,7 +11,7 @@ from my_check import operation_check, status_check, my_exit
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
 from my_course import test, test_rot, test_rot_onoff, course_ver1, course_ver2, course_ver3, course_data_picking, course_ver4, course_ver5
 from my_state_write import state_write
-from my_teaching import  get_log
+from my_teaching import teaching_set, teaching_in, teaching_out
 
 # -----------------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ def mode_set():
     # led_blue()
 
     # textにlogを残すか？
-    log()
+    # log()
 
     # 動作チェックするか？
     # operation_check()
@@ -44,6 +44,7 @@ def mode_set():
         print data["mgs"]
         print "Ready !!"
 
+    print "\nPlease wait!!"
     # センサー初期化
     send_data("reboot")
     time.sleep(0.5)
@@ -58,57 +59,26 @@ def mode_set():
         data = get_data("all")
 
     # カウントダウン
-    for cnt in range(2, 0, -1):
-        led_red()
-        print cnt
-        time.sleep(0.5)
-        led_off()
-        time.sleep(0.5)
+    # for cnt in range(2, 0, -1):
+    #     led_red()
+    #     print cnt
+    #     time.sleep(0.5)
+    #     led_off()
+    #     time.sleep(0.5)
 
-    print "Go !!"
+    # print "Go !!"
 
 
 def my_main():
     # センサーデータ取得
     data = get_data("all")
-    # t10j_time(set_time=10)
-    get_log()
-    # print data
-    # print data["duty0"]
-    # print get_data("yaw2")
-    # print "flw0  flw1  flw2"
-    # print data["flw0"],
-    # print " ",
-    # print data["flw1"],
-    # print " ",
-    # print data["flw2"]
-    # print
-    # print data["rot0"]
-    # print data["rot1"]
-    # print data["rot2"]
-    # print data["rot3"]
-    # print
-    # print data
-    # print data["depth"]
-    # print data["yaw"]
-    # test(30, 9)
-    # test_rot(30, 90)
-    # test_rot_onoff(30, 90)
-
-    # 波の上
-    # course_ver1(30, 900)
-    # course_ver1(30, 90)
-
-    # course_ver2(40, 1050)
-    # course_ver2(30, 1050)
-    # course_data_picking(30, 150)
-    # course_ver4(30, 100)
+    # teaching_in()
+    # teaching_out()
+    # teaching_set()
+    t10j()
 
     # 本番調整
     # course_ver5(30, 100)
-
-    # pitch()
-
 
     # コースに沿ったプログラム
     # course_ver3(30, 200)

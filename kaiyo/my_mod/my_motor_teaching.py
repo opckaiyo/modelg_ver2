@@ -5,7 +5,7 @@ import time
 import Adafruit_PCA9685
 import sys
 sys.path.append("/kaiyo/my_mod")
-from my_state_write import state_write, motor_write, motor_write_close
+# from my_state_write import state_write, motor_write, motor_write_open, motor_write_close
 
 pwm = Adafruit_PCA9685.PCA9685()
 # pwm周波数設定
@@ -214,19 +214,15 @@ def my_map_br( val ):
     return val
 
 
-vals = {"dc_xr":0,"dc_xl":0,"dc_yr":0,"dc_yl":0}
-old_time = time.time()
+# モータの動作をテキストに保存
+vals = {"dc_xr":0,"dc_xl":0,"dc_yr":0,"dc_yl":0,"time":0}
+start_time = time.time()
+file = open('/kaiyo/log/motor_log.txt', 'a')
 def motor_vals(key, val):
-    # vals[key] = val
     # print vals
-    # motor_write(vals)
-
-    ela_time = time.time() - old_time
-    print ela_time
-    if ela_time >= 0.1:
-        vals[key] = val
-        print vals
-        motor_write(vals)
+    vals[key] = val
+    vals["time"] = float(time.time())
+    file.writelines(str(vals) + "\n")
 
 
 if __name__ == '__main__':

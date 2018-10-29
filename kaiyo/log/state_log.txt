@@ -628,3 +628,48 @@ invalid literal for int() with base 10: '' : 2018-10-26 15:23:08.035026
 I/O operation on closed file : 2018-10-26 15:29:37.932485
 I/O operation on closed file : 2018-10-26 15:31:22.766929
 unexpected EOF while parsing (<unknown>, line 0) : 2018-10-26 15:40:14.996074
+descriptor 'writelines' requires a 'file' object but received a 'str' : 2018-10-29 10:58:23.273110
+descriptor 'writelines' requires a 'file' object but received a 'str' : 2018-10-29 11:05:04.807544
+descriptor 'close' of 'file' object needs an argument : 2018-10-29 11:07:26.901960
+unexpected EOF while parsing (<unknown>, line 0) : 2018-10-29 11:11:21.984106
+unexpected EOF while parsing (<unknown>, line 0) : 2018-10-29 11:11:33.070087
+unexpected EOF while parsing (<unknown>, line 0) : 2018-10-29 11:13:03.558733
+'duty2' : 2018-10-29 11:27:54.734437
+unexpected EOF while parsing (<unknown>, line 0) : 2018-10-29 11:29:55.928405
+unexpected EOF while parsing (<unknown>, line 0) : 2018-10-29 11:35:25.367846
+descriptor 'close' of 'file' object needs an argument : 2018-10-29 11:39:17.164845
+EOL while scanning string literal (<unknown>, line 1) : 2018-10-29 11:45:44.709701
+unexpected EOF while parsing (<unknown>, line 1) : 2018-10-29 11:49:04.243029
+[Errno 121] Remote I/O error : 2018-10-29 11:52:45.156186
+EOL while scanning string literal (<unknown>, line 1) : 2018-10-29 11:53:24.774773
+unexpected EOF while parsing (<unknown>, line 1) : 2018-10-29 11:54:28.405737
+unexpected EOF while parsing (<unknown>, line 1) : 2018-10-29 12:00:39.851098
+unexpected EOF while parsing (<unknown>, line 1) : 2018-10-29 12:14:34.232037
+global name 'up_down' is not defined : 2018-10-29 12:33:59.504882
+global name 'up_down' is not defined : 2018-10-29 12:34:45.346438
+unexpected EOF while parsing (<unknown>, line 1) : 2018-10-29 13:26:19.268830
+string indices must be integers, not str : 2018-10-29 13:41:57.458934
+local variable 'data2' referenced before assignment : 2018-10-29 13:42:33.271447
+unexpected EOF while parsing (<unknown>, line 1) : 2018-10-29 13:47:36.360731
+local variable 'old_time' referenced before assignment : 2018-10-29 13:51:20.126221
+unexpected EOF while parsing (<unknown>, line 1) : 2018-10-29 13:52:26.066063
+unexpected EOF while parsing (<unknown>, line 1) : 2018-10-29 13:53:38.818458
+unexpected EOF while parsing (<unknown>, line 1) : 2018-10-29 13:54:31.658564
+EOL while scanning string literal (<unknown>, line 1) : 2018-10-29 13:56:18.058711
+EOL while scanning string literal (<unknown>, line 1) : 2018-10-29 13:57:49.750345
+unexpected EOF while parsing (<unknown>, line 1) : 2018-10-29 14:01:02.032426
+unexpected EOF while parsing (<unknown>, line 1) : 2018-10-29 14:06:40.976584
+unexpected EOF while parsing (<unknown>, line 1) : 2018-10-29 14:11:59.128815
+EOL while scanning string literal (<unknown>, line 1) : 2018-10-29 14:12:46.005949
+invalid literal for int() with base 10: '\x1b[A' : 2018-10-29 14:18:11.747563
+local variable 'cnt' referenced before assignment : 2018-10-29 14:25:46.181973
+local variable 'cnt' referenced before assignment : 2018-10-29 14:26:37.927561
+local variable 'cnt' referenced before assignment : 2018-10-29 14:28:36.426160
+local variable 'start_time' referenced before assignment : 2018-10-29 14:29:18.367140
+local variable 'start_time' referenced before assignment : 2018-10-29 14:30:32.955709
+local variable 'start_time' referenced before assignment : 2018-10-29 14:31:06.675932
+invalid literal for int() with base 10: '\x1b[A' : 2018-10-29 14:43:03.069653
+global name 'led_red' is not defined : 2018-10-29 15:54:31.654095
+global name 'led_off' is not defined : 2018-10-29 15:55:18.283418
+global name 'keu' is not defined : 2018-10-29 16:02:08.916642
+global name 'xr' is not defined : 2018-10-29 16:59:38.603066

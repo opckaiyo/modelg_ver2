@@ -1,7 +1,7 @@
 #coding: utf-8
 import time
 import sys
-# マルチタスク
+# 自作関数のインポート
 sys.path.append("/kaiyo/my_mod")
 from my_get_serial import get_data, send_data, log
 from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca, pump
@@ -9,9 +9,10 @@ from my_balance import yaw, go_yaw_time, go_yaw_rot, diving, diving_while, go_ya
 from my_rc import t10j, t10j_time
 from my_check import operation_check, status_check, my_exit
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
-from my_course import test, test_rot, test_rot_onoff, course_ver1, course_ver2, course_ver3, course_data_picking, course_ver4, course_ver5
+from my_course import test, test_rot, course_ver4, course_ver5
 from my_state_write import state_write
 from my_teaching import teaching_set, teaching_in, teaching_out
+
 
 # -----------------------------------------------------------------------------
 
@@ -75,10 +76,10 @@ def my_main():
     # teaching_in()
     # teaching_out()
     # teaching_set()
-    t10j()
+    # t10j()
 
     # 本番調整
-    # course_ver5(30, 100)
+    course_ver5(30, 100)
 
     # コースに沿ったプログラム
     # course_ver3(30, 200)
@@ -101,15 +102,6 @@ def my_main():
 
     # yaw(0, set_diving=False)
     # up_down_each(80,0)
-
-    # go_back(40)
-    # up_down(40)
-    # data = get_data("all")
-    # time.sleep(3)
-    # go_back(-40)
-    # up_down(-40)
-    # data = get_data("all")
-    # time.sleep(3)
 
     # diving_while(20)
     # diving(50)

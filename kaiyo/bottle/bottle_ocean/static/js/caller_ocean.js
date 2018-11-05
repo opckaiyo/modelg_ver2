@@ -12,7 +12,7 @@ window.addEventListener("deviceorientation", (dat) => {
     roll = dat.gamma;  // y軸（上下）まわりの回転の角度（右に傾けるとプラス）
 
     yaw = Math.round(yaw * 10) / 10
-    pitch  = Math.round(pitch * 10) / 10
+    pitch  = -(Math.round(pitch * 10) / 10)
     roll = Math.round(roll * 10) / 10
 });
 

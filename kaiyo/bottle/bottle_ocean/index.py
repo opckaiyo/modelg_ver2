@@ -31,18 +31,19 @@ def setLedEntry():
     var = request.json
     print
     # print "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",sorted(var.items())
-    # print "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",var
-    a = get_data("all")
-    print "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",a["flw0"],a["flw1"],a["flw2"]
+    print "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb","roll:",var["roll"],"  pitch:",var["pitch"]
+    # a = get_data("all")
+    # print "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",a["flw0"],a["flw1"],a["flw2"]
     print
 
 
-    if int(var["slider1"]) == 0:
-        go_back(int(var["slider2"]))
-    else:
-        spinturn(int(var["slider1"]))
-    up_down(int(var["slider3"]))
+    # if int(var["slider1"]) == 0:
+    #     go_back(int(var["slider2"]))
+    # else:
+    #     spinturn(int(var["slider1"]))
+    # up_down(int(var["slider3"]))
 
+    go_back(int(var["pitch"]))
 
 
 

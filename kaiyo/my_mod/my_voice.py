@@ -30,7 +30,7 @@ def say_datetime():
 
 
 # 渡されたfile_nameを読み上げるだけ
-def say(file_name="okinawa"):
+def jtalk_say(file_name="okinawa"):
     aplay = ['aplay','-q','/kaiyo/voice/'+file_name+'.wav']
     wr = subprocess.Popen(aplay)
 

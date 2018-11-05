@@ -135,7 +135,7 @@ def yaw_rot(set_rot, set_diving=True):
 #     print
 
 
-def my_map( val ):
+def my_map(val):
     if val <= 50:
         in_min = 0
         in_max = 50

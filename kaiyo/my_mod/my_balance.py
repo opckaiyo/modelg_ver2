@@ -46,13 +46,13 @@ from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purpl
 
 # 指定した角度に機体を持っていく関数
 # 改良版　モータの出力を抑える関数が入っている
-def yaw(val, set_diving=True):
+def yaw(set_angle, set_diving=True):
     while True:
         if set_diving:
             diving(set_diving)
             #up_down(60)
 
-        gol_val = val
+        gol_val = set_angle
         # (0 ~ 100) → (-100 ~ 0 ~ 100)
         now_val = my_map(get_data("yaw"))
         # (-100 ~ 0 ~ 100) → (0 ~ 200)
@@ -92,7 +92,7 @@ def yaw_rot(set_rot, set_diving=True):
         spinturn(-20)
 
         now_rot0 = get_data("rot0")
-        print "rot000000000000000000000000000000",now_rot0 - set_rot_old
+        print "rot---------------------------------",now_rot0 - set_rot_old
 
         if now_rot0 - set_rot_old >= set_rot:
             stop()
@@ -193,19 +193,18 @@ def map_yaw_adjustment(val):
             val = 10
     return int(val)
 
-
 # -----------------------------------------------------------------------------
 
 # 指定した角度に機体を持っていく関数
 # タイマーで制御
-def go_yaw_time(speed, angle, set_time, set_diving=True):
+def go_yaw_time(set_speed, set_angle, set_time, set_diving=True):
     old_time = time.time()
     while True:
         if set_diving:
             diving(set_diving)
             #up_down(60)
 
-        gol_val = angle
+        gol_val = set_angle
         # yawを取得して変換
         now_val = my_map(get_data("yaw"))
         print "gol_val", gol_val
@@ -219,17 +218,17 @@ def go_yaw_time(speed, angle, set_time, set_diving=True):
             dev_val = -1*((100 - (-1*now_val)) + (100 - gol_val))
             print "dev_val2", dev_val
 
-        r = speed
-        l = speed
+        r = set_speed
+        l = set_speed
 
         if dev_val >= 0:
             # 右に動く（右を弱める）
-            r = speed - dev_val
+            r = set_speed - dev_val
         else:
             # 左に動く（左を弱める）
-            l = speed + dev_val
+            l = set_speed + dev_val
 
-        go_back_each(l, r, 0)
+        go_back_each(l, r)
 
         print l, r
         print
@@ -245,14 +244,14 @@ def go_yaw_time(speed, angle, set_time, set_diving=True):
 # -----------------------------------------------------------------------------
 
 # 指定した角度に機体を持っていく関数(改良版)
-def go_yaw_rot(speed, angle, set_rot, set_diving=True):
+def go_yaw_rot(set_speed, set_angle, set_rot, set_diving=True):
     set_rot_old = get_data("rot0")
     while True:
         if set_diving:
             diving(set_diving)
             #up_down(60)
 
-        gol_val = angle
+        gol_val = set_angle
         # yawを取得して変換( -100 ~ 0 ~ 100)
         now_val = my_map(get_data("yaw"))
 
@@ -267,28 +266,28 @@ def go_yaw_rot(speed, angle, set_rot, set_diving=True):
             dev_val = -1*((100 - (-1*now_val)) + (100 - gol_val))
             print "dev_val2", dev_val
 
-        r = speed
-        l = speed
+        r = set_speed
+        l = set_speed
 
         if dev_val >= 0:
-            dev_val = map15(dev_val, speed)
+            dev_val = map15(dev_val, set_speed)
             # 右に動く（右を弱める）
-            r = speed - dev_val
-            r = map13(r, speed)
+            r = set_speed - dev_val
+            r = map13(r, set_speed)
         else:
-            dev_val = map15(dev_val, speed)
+            dev_val = map15(dev_val, set_speed)
             # 左に動く（左を弱める）
-            l = speed + dev_val
-            l = map13(l, speed)
+            l = set_speed + dev_val
+            l = map13(l, set_speed)
             # if l <= -100:
             #     l =  (200 + l)
 
         print l, r
 
-        go_back_each(l, r, 0)
+        go_back_each(l, r)
 
         now_rot0 = get_data("rot0")
-        print "rot000000000000000000000000000000",now_rot0 - set_rot_old
+        print "rot---------------------------------",now_rot0 - set_rot_old
         print
 
         if now_rot0 - set_rot_old >= set_rot:
@@ -296,15 +295,13 @@ def go_yaw_rot(speed, angle, set_rot, set_diving=True):
             stop()
             break
 
-        # return gol_val, now_val, dev_val, l, r
 
-
-def map15(val, speed):
+def map15(val, set_speed):
     if val <= 0:
         in_min = 0
         in_max = -100
         out_min = 0
-        out_max = -speed
+        out_max = -set_speed
         val = (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
         # 少数切り捨ての為intに変換
         return int(val)
@@ -312,26 +309,26 @@ def map15(val, speed):
         in_min = 0
         in_max = 100
         out_min = 0
-        out_max = speed
+        out_max = set_speed
         val = (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
         # 少数切り捨ての為intに変換
         return int(val)
 
 
-def map13(val, speed):
+def map13(val, set_speed):
     if val >= 0:
         in_min = 0
-        in_max = speed
+        in_max = set_speed
         out_min = -100
-        out_max = speed
+        out_max = set_speed
         val = (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
         # 少数切り捨ての為intに変換
         return int(val)
     else:
         in_min = 0
-        in_max = speed
+        in_max = set_speed
         out_min = -100
-        out_max = speed
+        out_max = set_speed
         val = (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
         # 少数切り捨ての為intに変換
         return int(val)
@@ -341,14 +338,14 @@ def map13(val, speed):
 
 
 # 指定した角度に機体を持っていく関数(onとoff)
-def go_yaw_onoff(speed, angle, set_rot, set_diving=True):
+def go_yaw_onoff(set_speed, set_angle, set_rot, set_diving=True):
     set_rot_old = get_data("rot0")
     while True:
         if set_diving:
             diving(set_diving)
-            #up_down(60)
 
-        gol_val = angle
+        gol_val = set_angle
+
         # yawを取得して変換( -100 ~ 0 ~ 100)
         now_val = my_map(get_data("yaw"))
 
@@ -366,29 +363,29 @@ def go_yaw_onoff(speed, angle, set_rot, set_diving=True):
         # この範囲の時は直進
         if dev_val >= -1 and dev_val <= 1:
             # print "Move LR"
-            r = speed
-            l = speed
+            r = set_speed
+            l = set_speed
         else:
             if dev_val <= 0:
                 # 左に動かす
                 # print "Move L"
-                r = speed
+                r = set_speed
                 # l = 0
-                l = speed / 2
+                l = set_speed / 2
             else:
                 # 右に動かす
                 # print "Move R"
                 # r = 0
-                r = speed / 2
-                l = speed
+                r = set_speed / 2
+                l = set_speed
 
         print l, r
         print
 
-        go_back_each(l, r, 0)
+        go_back_each(l, r)
 
         now_rot0 = get_data("rot0")
-        print "rot000000000000000000000000000000",now_rot0 - set_rot_old
+        print "rot---------------------------------",now_rot0 - set_rot_old
         # print "rot0",now_rot0
 
         if now_rot0 - set_rot_old >= set_rot:
@@ -447,29 +444,6 @@ def diving(val):
     up_down(-dev_val)
 
 
-
-# # 潜水
-# def diving_test(val, val2):
-#     # 圧力センサの値を取得
-#     # depth = get_data("depth")
-#     depth = val2
-#     # (圧力センサの値) → (0 ~ 100)
-#     map_depth_val = map_depth(depth)
-#     print "depth", depth
-#
-#     now_val = map_depth_val
-#     gol_val = val
-#     dev_val = gol_val - now_val
-#
-#     print "now_val", now_val
-#     print "gol_val", gol_val
-#     print "dev_val", dev_val
-#     dev_val = map_depth2(dev_val)
-#     print "motor_out",dev_val
-#     print
-#     # up_down(-dev_val)
-
-
 # 圧力センサーの値を(0 ~ 100)に変換
 def map_depth(val):
     # 海での値(波の上)
@@ -491,17 +465,6 @@ def map_depth(val):
     out_max = 100
     val = (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
     return int(val)
-
-
-# def map_depth2(val):
-#     in_min = -50
-#     in_max = 50
-#     out_min = -100
-#     out_max = 100
-#     val = (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
-#     if val >= 100: val = 100
-#     if val <= -100: val = -100
-#     return int(val)
 
 
 # モータの出力を調整
@@ -533,7 +496,7 @@ def map_depth2(val):
 # ----------------------------------------------------------------------------
 
 # Uターン地点に行くまでのプログラム
-def go_yaw_onoff_iki(speed, set_rot, set_diving=True):
+def go_yaw_onoff_iki(set_speed, set_rot, set_diving=True):
     set_rot_old = get_data("rot0")
     while True:
         # pitch()
@@ -545,24 +508,24 @@ def go_yaw_onoff_iki(speed, set_rot, set_diving=True):
 
         # この範囲の時は直進
         if now_val >= -1 and now_val <= 1:
-            r = speed
-            l = speed
+            r = set_speed
+            l = set_speed
         else:
             if now_val <= 0:
                 # 左に動かす
-                r = speed
-                l = int(speed / 1.5)
+                r = set_speed
+                l = int(set_speed / 1.5)
             else:
                 # 右に動かす
-                r = int(speed / 1.5)
-                l = speed
+                r = int(set_speed / 1.5)
+                l = set_speed
 
-        go_back_each(l, r, 0)
+        go_back_each(l, r)
 
         print l, r
 
         now_rot0 = get_data("rot0")
-        print "rot000000000000000000000000000000",now_rot0 - set_rot_old
+        print "rot---------------------------------",now_rot0 - set_rot_old
         print
 
         if now_rot0 - set_rot_old >= set_rot:
@@ -572,7 +535,7 @@ def go_yaw_onoff_iki(speed, set_rot, set_diving=True):
 # -----------------------------------------------------------------------------
 
 # Uターン地点に行くまでのプログラム
-def go_yaw_onoff_kaeri(speed, set_rot, set_diving=True):
+def go_yaw_onoff_kaeri(set_speed, set_rot, set_diving=True):
     set_rot_old = get_data("rot0")
     while True:
         pitch()
@@ -585,24 +548,24 @@ def go_yaw_onoff_kaeri(speed, set_rot, set_diving=True):
 
         # この範囲の時は直進
         if now_val >= 179 or now_val <= -179:
-            r = speed
-            l = speed
+            r = set_speed
+            l = set_speed
         else:
             if now_val <= 0:
                 # 右に動かす
-                r = int(speed / 1.5)
-                l = speed
+                r = int(set_speed / 1.5)
+                l = set_speed
             else:
                 # 左に動かす
-                r = speed
-                l =int(speed / 1.5)
+                r = set_speed
+                l =int(set_speed / 1.5)
 
-        go_back_each(l, r, 0)
+        go_back_each(l, r)
 
         print l, r
 
         now_rot0 = get_data("rot0")
-        print "rot000000000000000000000000000000",now_rot0 - set_rot_old
+        print "rot---------------------------------",now_rot0 - set_rot_old
         print
 
         if now_rot0 - set_rot_old >= set_rot:

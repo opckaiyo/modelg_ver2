@@ -8,7 +8,7 @@ sys.path.append("/kaiyo/my_mod")
 from my_motor import br_xr, br_xl, dc_xr, dc_xl, dc_yr, dc_yl, dc_u, pump
 from my_rc import t10j, t10j_time
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
-from my_check import operation_check, status_check, my_exit
+from my_check import operation_check, battery_check, my_exit
 from my_state_write import state_write, motor_write_reset
 
 

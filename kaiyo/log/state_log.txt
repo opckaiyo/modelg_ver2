@@ -673,3 +673,7 @@ global name 'led_red' is not defined : 2018-10-29 15:54:31.654095
 global name 'led_off' is not defined : 2018-10-29 15:55:18.283418
 global name 'keu' is not defined : 2018-10-29 16:02:08.916642
 global name 'xr' is not defined : 2018-10-29 16:59:38.603066
+global name 'set_speed30' is not defined : 2018-11-05 14:15:23.439067
+go_yaw_time() got an unexpected keyword argument 'set_angle' : 2018-11-05 14:43:22.421117
+go_yaw_time() got an unexpected keyword argument 'set_angle' : 2018-11-05 14:44:02.210150
+go_back_each() takes exactly 3 arguments (2 given) : 2018-11-05 15:10:57.332353

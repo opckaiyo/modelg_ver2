@@ -42,12 +42,20 @@ my_motor.py
 モータドライバ基板のPCAと通信して、モータの制御命令を行っている。
 前進、潜水、回転などの関数を用意している
 
+my_motor_teaching.py
+my_motor.pyにログを残す機能を追加したもの。
+
 my_rc.py
 プロポをでモータを制御する
 
 my_state_write.py
 状態のログを残したいときに使用する
 
+my_teaching.py
+ティーチングをするプログラム
+
+my_voice.py
+スピーカーでテキストを読み上げるための関数
 
 
 

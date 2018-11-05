@@ -88,7 +88,7 @@ def go_back( val ):
     # dc_u(val)
 
 # 前進_後進(それぞれの出力を指定）
-def go_back_each( l, r, u ):
+def go_back_each(l, r):
     dc_xl(l)
     dc_xr(-r)
     # dc_u( u )

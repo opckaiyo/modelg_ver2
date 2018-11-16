@@ -1,13 +1,16 @@
 #coding: utf-8
 import time
+# import signal
 import sys
+import subprocess
 sys.path.append("/kaiyo/my_mod")
-from my_get_serial import get_data, send_data, log
+from my_get_serial import get_data, send_data
 from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca
 from my_balance import yaw, go_yaw_time
 from my_rc import t10j
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
 from my_voice import jtalk
+
 # -------------------------------------------------------------------
 
 # プログラムを終了する手順
@@ -153,13 +156,15 @@ def voice_check(val):
 # 最初の動作
 def first_action(set_send_reboot=True, set_battery_check=True, set_log=True, set_operation_check=False, set_start_mgs=True, set_send_pwm=False, set_countdown=True):
     print
+    print "----------------------------------"
     print "set_send_reboot :", set_send_reboot
     print "set_battery_check :", set_battery_check
+    print "set_log :", set_log
     print "set_operation_check :", set_operation_check
     print "set_start_mgs :", set_operation_check
     print "set_send_pwm :", set_send_pwm
     print "set_countdown :", set_countdown
-    print
+    print "----------------------------------"
 
     # 念のためモーターstop
     stop()
@@ -175,9 +180,6 @@ def first_action(set_send_reboot=True, set_battery_check=True, set_log=True, set
     # 待機状態のLEDをセット
     led_purple()
 
-    if set_log:
-        # textにlogを残すか？
-        log()
 
     if set_operation_check:
         # 動作チェックするか？
@@ -212,6 +214,13 @@ def first_action(set_send_reboot=True, set_battery_check=True, set_log=True, set
         for i in range(20):
             data = get_data("all")
 
+    if set_log:
+        # textにlogを残すか？
+        cmd = "python /kaiyo/my_mod/my_data_sampling.py"
+        subprocess.Popen(cmd.split())
+        # subprocess.call(cmd.split())
+
+
     if set_countdown:
         # カウントダウン
         for cnt in range(set_countdown, 0, -1):
@@ -222,7 +231,6 @@ def first_action(set_send_reboot=True, set_battery_check=True, set_log=True, set
             time.sleep(0.5)
 
         print "Go !!"
-
 
 
 

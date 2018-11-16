@@ -43,7 +43,8 @@ def setLedEntry():
     go_back(int(val["slider1"]))
 
     if val["mode"] == "a":
-        jtalk(file_name="modea", voice="皆さんこんにちは、これから、海洋ロボットの説明を始めます。　私のなまえは「ちぶるまぎーもでるじーです」")
+        jtalk(file_name="modea", voice="エイチワイの皆さんこんにちは、これから、海洋ロボットの説明を始めます。　私のなまえは「ちぶるまぎーもでるじーです」")
+        # jtalk(file_name="modea", voice="皆さんこんにちは、これから、海洋ロボットの説明を始めます。　私のなまえは「ちぶるまぎーもでるじーです」")
 
     if val["mode"] == "b":
         jtalk(file_name="modedb", voice="私は「海洋ロボットコンペティション、イン、沖縄」に出場するためにかいはつされた、海洋ロボットです。")

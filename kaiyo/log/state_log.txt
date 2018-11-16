@@ -677,3 +677,9 @@ global name 'set_speed30' is not defined : 2018-11-05 14:15:23.439067
 go_yaw_time() got an unexpected keyword argument 'set_angle' : 2018-11-05 14:43:22.421117
 go_yaw_time() got an unexpected keyword argument 'set_angle' : 2018-11-05 14:44:02.210150
 go_back_each() takes exactly 3 arguments (2 given) : 2018-11-05 15:10:57.332353
+local variable 'xr' referenced before assignment : 2018-11-06 12:01:24.793852
+[Errno 121] Remote I/O error : 2018-11-06 15:13:14.206158
+[Errno 121] Remote I/O error : 2018-11-06 15:39:29.991661
+[Errno 121] Remote I/O error : 2018-11-06 15:42:31.121164
+[Errno 121] Remote I/O error : 2018-11-06 15:43:58.802804
+[Errno 121] Remote I/O error : 2018-11-06 15:46:22.537876

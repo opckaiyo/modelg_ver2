@@ -10,7 +10,7 @@ from my_rc import t10j, t10j_time, t10j_mode_sumo
 from my_check import operation_check, battery_check, my_exit, first_action
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
 from my_course import course_convention
-from my_state_write import state_write
+from my_text_write import error_log_write
 from my_teaching import teaching_set, teaching_in, teaching_out
 
 
@@ -20,7 +20,7 @@ from my_teaching import teaching_set, teaching_in, teaching_out
 def my_main():
     # センサーデータ取得
     data = get_data("all")
-    print data["roll"]
+    print data
 
     # teaching_in()
     # teaching_out()
@@ -71,7 +71,7 @@ if __name__ == '__main__':
                 # 予期せぬエラーが発生した時の処理
                 stop()
                 # エラーの内容を残す
-                # state_write(e)
+                error_log_write(e)
                 # print "\nError =",e
                 # print "Error!!!!!!!!!!!!!!!!!!!!!!!"
                 # for i in range(20):

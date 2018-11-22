@@ -9,7 +9,7 @@ from my_balance import yaw, go_yaw_time, go_yaw_rot, diving, diving_while, go_ya
 from my_rc import t10j
 from my_check import operation_check, battery_check, my_exit
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
-from my_state_write import state_write
+from my_text_write import error_log_write
 
 
 # -----------------------------------------------------------------------------

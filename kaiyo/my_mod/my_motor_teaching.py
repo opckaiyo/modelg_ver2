@@ -217,7 +217,7 @@ def my_map_br( val ):
 # モータの動作をテキストに保存
 vals = {"dc_xr":0,"dc_xl":0,"dc_yr":0,"dc_yl":0,"time":0}
 start_time = time.time()
-file = open('/kaiyo/log/motor_log.txt', 'a')
+file = open('/kaiyo/log/motor_log/motor_log.txt', 'a')
 def motor_vals(key, val):
     # print vals
     vals[key] = val

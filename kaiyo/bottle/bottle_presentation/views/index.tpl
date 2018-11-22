@@ -15,9 +15,9 @@
           <br>
           <h1>「CHIBURU Maggie ModelG」デモ</h1>
           <div>
-            <a href="#" class="square_btn" onclick="setLed(101, 1)">Mode A</a><br><br>
+            <!-- <a href="#" class="square_btn" onclick="setLed(101, 1)">Mode A</a><br><br>
             <a href="#" class="square_btn" onclick="setLed(101, 2)">Mode B</a><br><br>
-            <a href="#" class="square_btn" onclick="setLed(101, 3)">Mode C</a><br><br>
+            <a href="#" class="square_btn" onclick="setLed(101, 3)">Mode C</a><br><br> -->
             <a href="#" class="square_btn" onclick="setLed(101, 4)">デモスタート!!</a><br><br>
           </div>
 

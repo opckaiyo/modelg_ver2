@@ -5,7 +5,7 @@ import time
 import Adafruit_PCA9685
 import sys
 sys.path.append("/kaiyo/my_mod")
-from my_state_write import state_write
+# from my_state_write import state_write
 
 pwm = Adafruit_PCA9685.PCA9685()
 # pwm周波数設定

@@ -15,7 +15,7 @@ from my_get_serial import get_data
 ser = serial.Serial('/dev/ttyACM0', 115200)
 
 # logsをテキストに残すか聞くプログラム
-file = open('/kaiyo/log/log_'+str(datetime.now().strftime('%y%m%d_%H%M%S'))+'.txt', 'a')
+file = open('/kaiyo/log/sensor_log/sensor_log_'+str(datetime.now().strftime('%y%m%d_%H%M%S'))+'.txt', 'a')
 
 # -----------------------------------------------------------------------------
 #
@@ -27,7 +27,7 @@ def data_sampling(set_sample_rate=0.2):
         try:
             # dictに変換
             data = ast.literal_eval(data)
-            # print data
+            print data
             # サンプリングレート以上時間が経過したら書き込み
             ela_time = time.time() - start_time
             if ela_time >= set_sample_rate:

@@ -27,7 +27,9 @@ def data_sampling(set_sample_rate=0.2):
         try:
             # dictに変換
             data = ast.literal_eval(data)
-            print data
+            print data["flw0"],
+            print data["flw1"],
+            print data["flw2"]
             # サンプリングレート以上時間が経過したら書き込み
             ela_time = time.time() - start_time
             if ela_time >= set_sample_rate:
@@ -37,7 +39,7 @@ def data_sampling(set_sample_rate=0.2):
         except SyntaxError:
             # 受信エラー
             print "Reception Error!!"
-            pass
+            # pass
 
 
 # textにlog書き込み

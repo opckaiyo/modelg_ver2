@@ -201,10 +201,10 @@ def first_action(set_send_reboot=True, set_battery_check=True, set_log=True, set
     # センサー初期化
     send_data("reboot")
     time.sleep(0.5)
-    # send_data("reboot")
-    # time.sleep(0.5)
-    # send_data("reboot")
-    # time.sleep(0.5)
+    send_data("reboot")
+    time.sleep(0.5)
+    send_data("reboot")
+    time.sleep(0.5)
 
     if set_send_pwm:
         # プロポ受信モード
@@ -215,11 +215,15 @@ def first_action(set_send_reboot=True, set_battery_check=True, set_log=True, set
             data = get_data("all")
 
     if set_log:
+        # pass
         # textにlogを残すか？
         cmd = "python /kaiyo/my_mod/my_data_sampling.py"
         subprocess.Popen(cmd.split())
         # subprocess.call(cmd.split())
-
+        cmd = "python /kaiyo/my_mod/my_gps.py"
+        subprocess.Popen(cmd.split())
+        # cmd = "python /kaiyo/my_mod/my_camera.py"
+        # subprocess.Popen(cmd.split())
 
     if set_countdown:
         # カウントダウン

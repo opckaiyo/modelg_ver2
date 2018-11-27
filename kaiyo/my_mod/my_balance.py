@@ -450,8 +450,12 @@ def map_depth(val):
     # in_min = 0.6
     # in_max = 10
     # 宜野湾
-    in_min = 0.6
-    in_max = 7.6
+    # in_min = 0.6
+    # in_max = 7.6
+    # 小学校プール
+    in_min = 1.5
+    in_max = 6
+
     # プールでの値
     # in_min = 2
     # in_max = 7

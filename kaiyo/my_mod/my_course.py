@@ -65,3 +65,57 @@ def course_convention():
     my_exit()
 
 # -----------------------------------------------------------------------------
+
+
+
+def course_pool():
+    stop()
+
+    # Uターン地点まで行く(海上)
+    led_red()
+    go_yaw_onoff_iki(set_speed=30, set_rot=400, set_diving=2)
+    # go_yaw_onoff_iki(set_speed=30, set_rot=200, set_diving=5)
+    led_off()
+
+    # Uターン地点まで行く(潜水)
+    # led_blue()
+    # go_yaw_onoff_iki(set_speed=30, set_rot=200, set_diving=60)
+    # led_off()
+
+    # 浮上
+    stop()
+    led_green()
+    up_down(60)
+    time.sleep(5)
+    stop()
+    led_off()
+
+    # Uターン
+    # yaw(100, set_diving=False)
+    led_purple()
+    yaw_rot(set_rot=30, set_diving=True)
+    led_off()
+
+    # 所定の深さまで沈む
+    diving_while(30)
+
+    # スタート地点まで行く(潜水)
+    led_blue()
+    go_yaw_onoff_kaeri(set_speed=30, set_rot=420, set_diving=80)
+    # go_yaw_onoff_kaeri(set_speed=30, set_rot=210, set_diving=80)
+    led_off()
+
+    # スタート地点まで行く(海上)
+    # led_red()
+    # go_yaw_onoff_kaeri(set_speed=30, set_rot=200, set_diving=5)
+    # led_off()
+
+    # 浮上
+    stop()
+    led_green()
+    up_down(60)
+    time.sleep(2)
+
+    my_exit()
+
+# -----------------------------------------------------------------------------

@@ -9,7 +9,7 @@ from my_balance import yaw, go_yaw_time, go_yaw_rot, diving, diving_while, go_ya
 from my_rc import t10j, t10j_time, t10j_mode_sumo
 from my_check import operation_check, battery_check, my_exit, first_action
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
-from my_course import course_convention
+from my_course import course_convention, course_pool
 from my_text_write import error_log_write
 from my_teaching import teaching_set, teaching_in, teaching_out
 
@@ -20,7 +20,25 @@ from my_teaching import teaching_set, teaching_in, teaching_out
 def my_main():
     # センサーデータ取得
     data = get_data("all")
-    print data
+    # print data["depth"]
+
+    course_pool()
+
+    # for i in range(30, 100, 10):
+    #     print i
+    #     go_back_each(i, i)
+    #     up_down(-80)
+    #     sleep(2)
+        # if i == 100: break
+
+        # stop()
+        # sleep(1)
+    # for i in range(-0, -100, -10):
+    #     print i
+    #     # go_back(i)
+    #     up_down(i)
+    #     sleep(3)
+    #     if i == -100: break
 
     # teaching_in()
     # teaching_out()
@@ -29,7 +47,8 @@ def my_main():
     # t10j(set_time=10)
 
     # print "aaa"
-    # go_back(50)
+    # go_back_each(0, 50)
+    # up_down_each(0, 50)
 
     # yaw(set_angle=0, set_diving=0)
 
@@ -44,11 +63,11 @@ if __name__ == '__main__':
         # 初期動作設定
         set_send_reboot = True
         set_battery_check = True
-        set_log = False
+        set_log = True
         set_operation_check = False
         set_start_mgs = False
         set_send_pwm = False
-        set_countdown = 0
+        set_countdown = 5
         first_action(set_send_reboot, set_battery_check, set_log, set_operation_check, set_start_mgs, set_send_pwm, set_countdown)
         # t10jを使うとき
         # first_action(set_send_reboot=True, set_battery_check=True, set_log=True, set_operation_check=False, set_start_mgs=False, set_send_pwm=True, set_countdown=0)

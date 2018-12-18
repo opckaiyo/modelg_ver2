@@ -3,6 +3,8 @@ import time
 # import signal
 import sys
 import subprocess
+import ConfigParser
+import distutils.util
 sys.path.append("/kaiyo/my_mod")
 from my_get_serial import get_data, send_data
 from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca
@@ -20,15 +22,12 @@ def my_exit():
     sys.exit()
 
 # 起動前にマシンの状態をチェック
-def battery_check(set_lipoC2=8, set_lipoC3S3=12):
+def battery_check(set_lipoC2=8, set_lipoC3S3=11):
     data = get_data("all")
     print
     print "----------------------------------"
-    print "Status checking!!"
-    time.sleep(1)
-
-
     print "Lipo checking!!"
+    time.sleep(0.5)
 
 
     if data["lipoC2"] <= set_lipoC2 or data["lipoC3S3"] <= set_lipoC3S3:
@@ -65,6 +64,7 @@ def operation_check():
         key_in = raw_input()
 
         if key_in == "y" or key_in == "Y":
+            print "Yes operation check!!"
             for i in range(100):
                 go_back_each(i, 0)
                 print i
@@ -73,11 +73,7 @@ def operation_check():
                 go_back_each(0, i)
                 print i
                 time.sleep(my_time)
-
-
             stop()
-
-
             for i in range(100):
                 up_down_each(0, i)
                 print i
@@ -86,11 +82,7 @@ def operation_check():
                 up_down_each(i, 0)
                 print i
                 time.sleep(my_time)
-
-
             stop()
-
-
             for i in range(0, -100, -1):
                 up_down_each(i, 0)
                 print i
@@ -99,11 +91,7 @@ def operation_check():
                 up_down_each(0, i)
                 print i
                 time.sleep(my_time)
-
-
             stop()
-
-
             for i in range(0, -100, -1):
                 go_back_each(0, i)
                 print i
@@ -112,58 +100,60 @@ def operation_check():
                 go_back_each(i, 0)
                 print i
                 time.sleep(my_time)
-
-
             stop()
-
-
             for i in range(0, -100, -1):
                 go_back_each(i, i)
                 up_down_each(i, i)
                 print i
                 time.sleep(my_time)
-
-
             stop()
-
-
             for i in range(0, 100, 1):
                 go_back_each(i, i)
                 up_down_each(i, i)
                 print i
                 time.sleep(my_time)
-
             stop()
             print "It worked normally!!"
             return 0
-
         elif key_in == "n" or key_in == "N":
-            print "nnn"
+            print "No operation check!!"
             return 0
 
 
 # 取得した値を読み上げ
 def voice_check(val):
-    # print get_data("all")
     data = get_data("all")
     print data[val]
-    # voice_text = "角度"+str(data[val])
-    # print voice_text
-    # # jtalk(file_name="a", voice=str(voice_text))
     time.sleep(1)
 
 
+
 # 最初の動作
-def first_action(set_send_reboot=True, set_battery_check=True, set_log=True, set_operation_check=False, set_start_mgs=True, set_send_pwm=False, set_countdown=True):
+def first_action():
+    # 設定ファイルから設定やパラメータを読み込む
+    inifile = ConfigParser.SafeConfigParser()
+    inifile.read('/kaiyo/my_config/my_config.ini')
+    set_send_reboot =       distutils.util.strtobool(inifile.get('set_mode', 'set_send_reboot'))
+    set_battery_check =     distutils.util.strtobool(inifile.get('set_mode', 'set_battery_check'))
+    set_sensor_log =        distutils.util.strtobool(inifile.get('set_mode', 'set_sensor_log'))
+    set_gps_log =           distutils.util.strtobool(inifile.get('set_mode', 'set_gps_log'))
+    set_camera =            distutils.util.strtobool(inifile.get('set_mode', 'set_camera'))
+    set_operation_check =   distutils.util.strtobool(inifile.get('set_mode', 'set_operation_check'))
+    set_start_mgs =         distutils.util.strtobool(inifile.get('set_mode', 'set_start_mgs'))
+    set_send_pwm =          distutils.util.strtobool(inifile.get('set_mode', 'set_send_pwm'))
+    set_countdown =         int(inifile.get('set_mode', 'set_countdown'))
+
     print
     print "----------------------------------"
-    print "set_send_reboot :", set_send_reboot
-    print "set_battery_check :", set_battery_check
-    print "set_log :", set_log
-    print "set_operation_check :", set_operation_check
-    print "set_start_mgs :", set_operation_check
-    print "set_send_pwm :", set_send_pwm
-    print "set_countdown :", set_countdown
+    print "set_send_reboot :",      set_send_reboot
+    print "set_battery_check :",    set_battery_check
+    print "set_sensor_log :",       set_sensor_log
+    print "set_gps_log :",          set_gps_log
+    print "set_camera :",           set_camera
+    print "set_operation_check :",  set_operation_check
+    print "set_start_mgs :",        set_operation_check
+    print "set_send_pwm :",         set_send_pwm
+    print "set_countdown :",        set_countdown
     print "----------------------------------"
 
     # 念のためモーターstop
@@ -181,7 +171,7 @@ def first_action(set_send_reboot=True, set_battery_check=True, set_log=True, set
     led_purple()
 
 
-    if set_operation_check:
+    if set_operation_check == True:
         # 動作チェックするか？
         operation_check()
 
@@ -214,16 +204,17 @@ def first_action(set_send_reboot=True, set_battery_check=True, set_log=True, set
         for i in range(20):
             data = get_data("all")
 
-    if set_log:
-        # pass
-        # textにlogを残すか？
+    if set_sensor_log:
         cmd = "python /kaiyo/my_mod/my_data_sampling.py"
         subprocess.Popen(cmd.split())
-        # subprocess.call(cmd.split())
+
+    if set_gps_log:
         cmd = "python /kaiyo/my_mod/my_gps.py"
         subprocess.Popen(cmd.split())
-        # cmd = "python /kaiyo/my_mod/my_camera.py"
-        # subprocess.Popen(cmd.split())
+
+    if set_camera:
+        cmd = "python /kaiyo/my_mod/my_camera.py"
+        subprocess.Popen(cmd.split())
 
     if set_countdown:
         # カウントダウン
@@ -248,11 +239,6 @@ if __name__ == '__main__':
         # send_data("reboot")
         try:
             voice_check("yaw")
-
-            # go_back(50)
-            # up_down(20)
-            # go_back_each(10,10)
-            # dc_u( 100 )
         except KeyboardInterrupt as e:
             stop()
             break

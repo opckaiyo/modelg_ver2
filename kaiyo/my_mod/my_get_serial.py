@@ -23,6 +23,7 @@ def get_data(val):
         try:
             # dictに変換
             data = ast.literal_eval(data)
+            # print data
 
             if val == "all":
                 # yawの値を変換してから渡す
@@ -31,8 +32,11 @@ def get_data(val):
                 # print "bbb", data["yaw"]
                 return data
             if val == "yaw": return my_map(data[val])
+            if val == "compass": return my_map(data[val])
             if val == "yaw2": return data["yaw"]
             if val == "state": return data["state"]
+            if val == "average_rot0_rot1": return (data["rot0"] + data["rot1"]) / 2
+            if val == "average_rot2_rot3": return (data["rot2"] + data["rot3"]) / 2
             return data[val]
         except SyntaxError:
             # 受信エラー

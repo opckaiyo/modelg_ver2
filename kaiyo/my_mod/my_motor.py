@@ -136,13 +136,13 @@ def stop_pump():
     pwm.set_pwm(dc_u_pwm, 0, 0)
 
 def stop_go_back():
-    print"\nSTOP_GO_BACK"
+    # print"\nSTOP_GO_BACK"
     pwm.set_pwm(dc_xr_pwm, 0, 0)
     pwm.set_pwm(dc_xl_pwm, 0, 0)
     pwm.set_pwm(dc_u_pwm, 0, 0)
 
 def stop_up_down():
-    print"\nSTOP_UP_DOWN"
+    # print"\nSTOP_UP_DOWN"
     pwm.set_pwm(dc_yr_pwm, 0, 0)
     pwm.set_pwm(dc_yl_pwm, 0, 0)
 

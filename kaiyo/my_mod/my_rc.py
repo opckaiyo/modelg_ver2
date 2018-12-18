@@ -73,12 +73,10 @@ def t10j(set_time=10):
         ry = t10j_map["ry"]
         rx = t10j_map["rx"]
 
-
         m_xr = 0
         m_xl = 0
         m_yr = 0
         m_yl = 0
-
 
         # 0 ~ 90
         if ly >= 1 and lx >= 1:

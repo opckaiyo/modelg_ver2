@@ -31,10 +31,10 @@ def battery_check(set_lipoC2=8, set_lipoC3S3=11):
 
 
     if data["lipoC2"] <= set_lipoC2 or data["lipoC3S3"] <= set_lipoC3S3:
-        if data["lipoC2"] == 0 or data["lipoC3S3"] == 0:
-            if data["lipoC2"] == 0:
+        if data["lipoC2"] <= 1 or data["lipoC3S3"] <= 1:
+            if data["lipoC2"] <= 1:
                 print "lipoC2 : No connection!!"
-            if data["lipoC3S3"] == 0:
+            if data["lipoC3S3"] <= 1:
                 print "lipoC3S3 : No connection!!"
         else:
             while True:

@@ -40,8 +40,11 @@ def get_pad_data():
         joy_ry = map_axis(round(joystick.get_axis(4), 2))
         joy_rt = map_axis(round(joystick.get_axis(5), 2))
 
-        joy_ly = int((joy_ly - (-100)) * (50 - (-50)) / (100 - (-100)) + (-50))
-        joy_ry = int((joy_ry - (-100)) * (50 - (-50)) / (100 - (-100)) + (-50))
+        # joy_ly = int((joy_ly - (-100)) * (30 - (-30)) / (100 - (-100)) + (-30))
+        # joy_ry = int((joy_ry - (-100)) * (30 - (-30)) / (100 - (-100)) + (-30))
+
+        # joy_ly = int((joy_ly - (-100)) * (50 - (-50)) / (100 - (-100)) + (-50))
+        # joy_ry = int((joy_ry - (-100)) * (50 - (-50)) / (100 - (-100)) + (-50))
 
         joy_ly = -joy_ly
         joy_ry = -joy_ry

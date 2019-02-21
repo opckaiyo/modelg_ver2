@@ -1579,3 +1579,21 @@ device reports readiness to read but returned no data (device disconnected or mu
 [Errno 121] Remote I/O error : 2018-12-12 13:29:12.355575
 [Errno 121] Remote I/O error : 2018-12-12 14:27:21.063293
 [Errno 121] Remote I/O error : 2018-12-12 14:34:24.994845
+[Errno 121] Remote I/O error : 2018-12-18 16:47:51.995866
+'float' object has no attribute '__getitem__' : 2018-12-18 18:05:46.997233
+'float' object has no attribute '__getitem__' : 2018-12-18 18:05:49.045720
+'float' object has no attribute '__getitem__' : 2018-12-18 18:05:51.090909
+'float' object has no attribute '__getitem__' : 2018-12-18 18:05:53.137291
+'float' object has no attribute '__getitem__' : 2018-12-18 18:05:55.185143
+[Errno 121] Remote I/O error : 2018-12-18 21:01:19.814953
+[Errno 121] Remote I/O error : 2018-12-18 21:02:32.515710
+[Errno 121] Remote I/O error : 2018-12-18 21:03:52.311733
+[Errno 121] Remote I/O error : 2018-12-18 21:03:57.025608
+[Errno 121] Remote I/O error : 2018-12-18 21:04:46.384132
+[Errno 121] Remote I/O error : 2018-12-18 21:06:46.153883
+invalid syntax (<unknown>, line 1) : 2018-12-18 21:08:15.988506
+invalid syntax (<unknown>, line 1) : 2018-12-18 21:08:31.147668
+invalid syntax (<unknown>, line 1) : 2018-12-18 21:08:40.438177
+invalid syntax (<unknown>, line 1) : 2018-12-18 21:08:43.277438
+invalid syntax (<unknown>, line 1) : 2018-12-18 21:09:21.667208
+'lat' : 2018-12-18 21:11:01.036190

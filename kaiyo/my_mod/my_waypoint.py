@@ -110,12 +110,13 @@ def waypoint(waypoint_data):
                 compass(set_angle=goal_gps_data["direction"], set_diving=False)
                 # 目標地点まで角度を調整しながら前進
                 # go_compass_onoff(set_speed=30, set_angle=0, set_rot=goal_gps_data["set_rot"], set_diving=True)
-                go_compass_onoff(set_speed=30, set_angle=goal_gps_data["direction"], set_rot=20, set_diving=True)
+                go_compass_onoff(set_speed=30, set_angle=goal_gps_data["direction"], set_rot=30, set_diving=True)
 
 
 # 経路作成
 def pad_rc_route_data_creation():
     gps_route_data = open('/kaiyo/log/gsp_route_data/gps_route_data.txt', 'a')
+    # gps_route_data = open('/kaiyo/log/gsp_route_data/gps_route_data.txt', 'w')
     up_down_val = 0
     while True:
         # padの状態を取得

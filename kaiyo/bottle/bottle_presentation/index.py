@@ -9,7 +9,7 @@ import random
 
 import sys
 sys.path.append("/kaiyo/my_mod")
-from my_get_serial import get_data, send_data
+# from my_get_serial import get_data, send_data
 from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca
 from my_voice import jtalk, jtalk_say
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
@@ -121,8 +121,8 @@ def setLedEntry():
 def main():
     print("Initialize port")
     print('Server Start')
-    run(host='192.168.11.8', port=8888, debug=True, eloader=True)
-    # run(host='172.20.10.5', port=8888, debug=True, eloader=True)
+    # run(host='192.168.11.6', port=8888, debug=True, eloader=True)
+    run(host='172.20.10.6', port=8888, debug=True, eloader=True)
 
 
 def atExit():

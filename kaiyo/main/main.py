@@ -21,18 +21,18 @@ from my_gamepad import pad_rc
 
 def my_main():
     # センサーデータ取得
-    data = get_data("all")
+    # data = get_data("all")
     # print data
 
+    go_back(10)
     # pad_rc_route_data_creation()
-
-    pad_rc()
+    # compass(set_angle=0, set_diving=False)
+    # pad_rc()
 
     # sleep(5)
-    # waypoint_data = {
-    #                 0:{"lat":26.377875,"lng":127.822318333}
-    #                 }
+    # waypoint_data = {1:{'lat': 26.377735, 'lng': 127.822441667}}
     # waypoint(waypoint_data = waypoint_data)
+    # print "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
 
     # print data["compass"],
@@ -41,9 +41,9 @@ def my_main():
     # yaw(set_angle=180, set_diving=False)
     # compass(set_angle=0, set_diving=False)
     # go_compass_onoff(set_speed=30, set_angle=0, set_rot=100, set_diving=True)
-    # go_yaw(set_speed=30, set_angle=0, set_rot=50, set_time=False, set_diving=True)
+    # go_yaw(set_speed=30, set_angle=0, set_rot=100, set_time=False, set_diving=True)
     # go_yaw_rot(set_speed=30, set_angle=0, set_rot=10000, set_diving=True)
-    # go_yaw_onoff(set_speed=30, set_angle=50, set_rot=1000, set_diving=True)
+    # go_yaw_onoff(set_speed=30, set_angle=0, set_rot=100, set_diving=True)
 
 
     # course_pool()

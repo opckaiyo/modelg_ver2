@@ -10,7 +10,7 @@ from my_rc import t10j
 from my_check import operation_check, battery_check, my_exit
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
 from my_text_write import error_log_write
-
+from my_waypoint import waypoint
 
 # -----------------------------------------------------------------------------
 
@@ -73,7 +73,7 @@ def course_pool():
 
     # Uターン地点まで行く(海上)
     led_red()
-    go_yaw_onoff_iki(set_speed=30, set_rot=400, set_diving=2)
+    go_yaw_onoff_iki(set_speed=30, set_rot=400, set_diving=80)
     # go_yaw_onoff_iki(set_speed=30, set_rot=200, set_diving=5)
     led_off()
 
@@ -90,11 +90,16 @@ def course_pool():
     stop()
     led_off()
 
-    # Uターン
-    # yaw(100, set_diving=False)
-    led_purple()
-    yaw_rot(set_rot=30, set_diving=True)
-    led_off()
+    # 設定地点まで自動で移動
+    waypoint_data = {1:{'lat': 26.377735, 'lng': 127.822441667}}
+    waypoint(waypoint_data = waypoint_data)
+    print "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+
+    # # Uターン
+    # # yaw(100, set_diving=False)
+    # led_purple()
+    # yaw_rot(set_rot=30, set_diving=True)
+    # led_off()
 
     # 所定の深さまで沈む
     diving_while(30)

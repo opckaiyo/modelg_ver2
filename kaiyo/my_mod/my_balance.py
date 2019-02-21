@@ -120,7 +120,7 @@ def map_yaw_adjustment(val):
     in_min = 0
     in_max = 100
     out_min = 0
-    out_max = 60
+    out_max = 30
     # out_max = 100
     val = (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 

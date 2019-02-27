@@ -21,10 +21,21 @@ from my_gamepad import pad_rc
 
 def my_main():
     # センサーデータ取得
-    # data = get_data("all")
+    data = get_data("all")
     # print data
+    print "rot0",data["rot0"]
+    print "rot1",data["rot1"]
+    print "rot2",data["rot2"]
+    print "rot3",data["rot3"]
+    # print "flw0", data["flw0"]
+    # print "flw1", data["flw1"]
+    # print "flw2", data["flw2"]
+    # print "flw3", data["flw3"]
+    print
 
-    go_back(10)
+    go_back(5)
+    # up_down(20)
+
     # pad_rc_route_data_creation()
     # compass(set_angle=0, set_diving=False)
     # pad_rc()
@@ -38,7 +49,8 @@ def my_main():
     # print data["compass"],
     # print data["yaw"]
 
-    # yaw(set_angle=180, set_diving=False)
+    # yaw(set_angle=0, set_diving=False)
+    # go_yaw_time(set_speed=50, set_angle=0, set_time=100, set_diving=False)
     # compass(set_angle=0, set_diving=False)
     # go_compass_onoff(set_speed=30, set_angle=0, set_rot=100, set_diving=True)
     # go_yaw(set_speed=30, set_angle=0, set_rot=100, set_time=False, set_diving=True)

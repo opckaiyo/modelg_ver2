@@ -107,6 +107,7 @@ if __name__ == '__main__':
     try:
         while True:
             my_main(val = "d")
+            time.sleep(60)
 
             # jtalk(file_name="min3", voice="皆さんこんにちは、今から3分後に自動デモンストレーションを開始します。ご覧になるかたは集まってください。")
             jtalk_say(file_name="min3")

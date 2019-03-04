@@ -42,7 +42,7 @@ def get_gps_data():
             print "GPSD has terminated!!"
 
 
-# GPSのデータを取得して還す
+# GPSのデータをテキストファイルに保存
 def gps_data_logging():
     # log ファイル生成
     gps_log_file_time = open('/kaiyo/log/gps_log/gps_log_'+str(datetime.now().strftime('%Y%m%d_%H%M%S'))+'.txt', 'a')

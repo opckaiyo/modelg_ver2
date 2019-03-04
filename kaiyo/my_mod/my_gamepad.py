@@ -4,7 +4,7 @@ import time
 
 import sys
 sys.path.append("/kaiyo/my_mod")
-from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca, pump
+from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each
 
 # -----------------------------------------------------------------------------
 

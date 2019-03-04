@@ -4,7 +4,7 @@ import sys
 # マルチタスク
 sys.path.append("/kaiyo/my_mod")
 from my_get_serial import get_data, send_data
-from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca
+from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each
 from my_balance import yaw, go_yaw_time, go_yaw_rot, diving, diving_while, go_yaw_onoff, go_yaw_onoff_iki, go_yaw_onoff_kaeri, yaw_rot
 from my_rc import t10j
 from my_check import operation_check, battery_check, my_exit

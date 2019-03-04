@@ -4,10 +4,7 @@ import sys
 # sys.path.append("/kaiyo/serial")
 sys.path.append("/kaiyo/my_mod")
 from my_get_serial import get_data, send_data
-from my_motor_teaching import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca, pump
-from my_motor_teaching import br_xr, br_xl, dc_xr, dc_xl, dc_yr, dc_yl, dc_u, pump
-# from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca
-# from my_motor_teaching import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca, pump
+from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
 
 

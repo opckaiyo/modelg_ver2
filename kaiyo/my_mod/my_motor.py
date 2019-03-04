@@ -75,8 +75,13 @@ def dc_u( val ):
     pwm.set_pwm(dc_u_pwm, 0, val)
     pwm.set_pwm(dc_u_dir, 0, pone)
 
-def pump( val ):
-    val, pone = my_map(val)
+def solenoid_on():
+    val, pone = my_map(99)
+    pwm.set_pwm(dc_u_pwm, 0, val)
+    pwm.set_pwm(dc_u_dir, 0, pone)
+
+def solenoid_off():
+    val, pone = my_map(0)
     pwm.set_pwm(dc_u_pwm, 0, val)
     pwm.set_pwm(dc_u_dir, 0, pone)
 
@@ -108,10 +113,6 @@ def spinturn( val ):
     dc_xl(val)
     dc_xr(val)
 
-# 右回り_左回り(spinturn)
-def spinturn_meca( val ):
-    dc_xl(-val)
-    dc_xr(-val)
 
 # 右回り_左回り(それぞれの出力を指定)
 def spinturn_each( l, r ):
@@ -210,7 +211,11 @@ def my_map_br( val ):
 if __name__ == '__main__':
     while True:
         try:
-            go_back(50)
+            solenoid_on()
+            time.sleep(0.2)
+            solenoid_off()
+            time.sleep(0.2)
+            # go_back(50)
             # up_down(20)
             # go_back_each(10,10,0)
             # dc_u( 100 )

@@ -8,7 +8,7 @@ sys.path.append("/kaiyo/my_mod")
 from my_gps import get_gps_data
 from my_balance import yaw, go_yaw_time, go_yaw_rot, diving, diving_while, go_yaw_onoff, go_yaw_onoff_iki, go_yaw_onoff_kaeri, yaw_rot, compass, go_compass_onoff
 from my_check import operation_check, battery_check, my_exit, first_action
-from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca, pump
+from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each
 from my_gamepad import get_pad_data
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
 

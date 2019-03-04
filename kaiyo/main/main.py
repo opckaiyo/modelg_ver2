@@ -4,14 +4,13 @@ import sys
 # 自作関数のインポート
 sys.path.append("/kaiyo/my_mod")
 from my_get_serial import get_data, send_data
-from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, spinturn_meca, pump
+from my_motor import go_back, up_down, spinturn, roll, stop, stop_go_back, stop_up_down, br_xr, go_back_each, up_down_each, spinturn_each, solenoid_on, solenoid_off
 from my_balance import yaw, go_yaw, go_yaw_time, go_yaw_rot, diving, diving_while, go_yaw_onoff, go_yaw_onoff_iki, go_yaw_onoff_kaeri, yaw_rot, compass, go_compass_onoff
 from my_rc import t10j, t10j_time, t10j_mode_sumo
 from my_check import operation_check, battery_check, my_exit, first_action
 from my_gpio import led_red, led_green, led_yellow, led_off, led_blue, led_purple, led_lihtblue
 from my_course import course_convention, course_pool
 from my_text_write import error_log_write
-from my_teaching import teaching_set, teaching_in, teaching_out
 from my_gps import gps_sensor_join_data
 from my_waypoint import waypoint, pad_rc_route_data_creation
 from my_gamepad import pad_rc
@@ -23,17 +22,17 @@ def my_main():
     # センサーデータ取得
     data = get_data("all")
     # print data
-    print "rot0",data["rot0"]
-    print "rot1",data["rot1"]
-    print "rot2",data["rot2"]
-    print "rot3",data["rot3"]
+    # print "rot0",data["rot0"]
+    # print "rot1",data["rot1"]
+    # print "rot2",data["rot2"]
+    # print "rot3",data["rot3"]
     # print "flw0", data["flw0"]
     # print "flw1", data["flw1"]
     # print "flw2", data["flw2"]
     # print "flw3", data["flw3"]
-    print
+    # print
 
-    go_back(5)
+    go_back(80)
     # up_down(20)
 
     # pad_rc_route_data_creation()
@@ -60,9 +59,6 @@ def my_main():
 
     # course_pool()
 
-    # teaching_in()
-    # teaching_out()
-    # teaching_set()
     # t10j_mode_sumo()
     # t10j(set_time=10)
 

@@ -11,7 +11,7 @@ pwm = Adafruit_PCA9685.PCA9685()
 # pwm周波数設定
 # pwm.set_pwm_freq(66)
 # pwm.set_pwm_freq(500)
-pwm.set_pwm_freq(1000)
+pwm.set_pwm_freq(1000)  #パワーは下がるが、早くなる（トルクが下がる）
 
 
 # HAT-MDD10ピン設定

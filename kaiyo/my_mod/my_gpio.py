@@ -34,19 +34,19 @@ def led_red():
     led_mode(0, 1, 0)
 
 def led_purple():
-    # print "WHITE!!"
+    # print "purple!!"
     led_mode(0, 1, 1)
 
 def led_green():
-    # print "WHITE!!"
+    # print "green!!"
     led_mode(1, 0, 0)
 
 def led_lihtblue():
-    # print "WHITE!!"
+    # print "lihtblue!!"
     led_mode(1, 0, 1)
 
 def led_yellow():
-    # print "WHITE!!"
+    # print "yellow!!"
     led_mode(1, 1, 0)
 
 def led_white():

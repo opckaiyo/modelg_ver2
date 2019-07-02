@@ -21,11 +21,11 @@ def get_gps_data():
             report = session.next()
             # print report # To see all report data, uncomment the line below
             if report['class'] == 'TPV':
-                if hasattr(report, 'lat'):
+                if hasattr(report, 'lat'):  # 緯度
                     lat = float(report.lat)
-                if hasattr(report, 'lon'):
+                if hasattr(report, 'lon'):  # 経度
                     lon = float(report.lon)
-                if hasattr(report, 'alt'):
+                if hasattr(report, 'alt'):  # 高度
                     alt = float(report.alt)
                 if( lat!=""and lon!="" and alt!="" ):
                     gps_data_dict = {"lat":lat, "lng":lon, "alt":alt}

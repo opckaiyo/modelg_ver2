@@ -31,8 +31,9 @@ def get_direction_distance(goal_lat, goal_lng):
     lng_length = goal_lng - now_lng
 
     # 方位を計算
-    direction = math.atan2(lat_length, lng_length) / 0.01745329
-    direction -= 90
+    #direction = math.atan2(lat_length, lng_length) / 0.01745329
+    direction = math.degrees(math.atan2(lat_length, lng_length))
+    #direction -= 90
     if direction < -180:
         direction += 360
 

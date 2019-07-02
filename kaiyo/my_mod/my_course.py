@@ -124,3 +124,21 @@ def course_pool():
     my_exit()
 
 # -----------------------------------------------------------------------------
+
+def auv():
+
+    #現在の向き取得
+    now_gps_data = get_gps_data()
+    now_lat = now_gps_data["ex"]
+
+    #スタート位置を入力
+    start_lat =
+    start_lng =
+    #direction:向き, distance:距離, set_rot:距離を元にスラスタ回転数計算
+    direction, distance, set_rot = get_direction_distance(start_lat,start_lng)
+
+    #左回り、右回りどちらが早いか計算
+    if abs((ex) - (direction)):
+
+
+# -----------------------------------------------------------------------------

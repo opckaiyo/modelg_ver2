@@ -127,18 +127,78 @@ def course_pool():
 
 def auv():
 
+    #パラメーター----------------------------
+
+    #競技スタート位置を入力
+    start_lat =
+    start_lng =
+
+    #潜水地点を入力
+    diving_lat =
+    diving_lng =
+
+    #目的の水深
+    depth =
+
+    #パラメーター----------------------------
+
+
+    #競技スタート位置に移動-------------------
+
     #現在の向き取得
     now_gps_data = get_gps_data()
     now_lat = now_gps_data["ex"]
 
-    #スタート位置を入力
-    start_lat =
-    start_lng =
     #direction:向き, distance:距離, set_rot:距離を元にスラスタ回転数計算
     direction, distance, set_rot = get_direction_distance(start_lat,start_lng)
 
     #左回り、右回りどちらが早いか計算
-    if abs((ex) - (direction)):
+    now_lot = now_lot - (int(now_lot / 90) * 90)
+    direction = direction - (int(now_lot / 90) * 90)
+
+    if (direction < 0):
+        direction = abs(direction) + 180
+
+    #回転
+    spinturn(direction)
+
+    #スラスタ回転数を指定し前進
+    go_back(set_rot)
+
+    #競技スタート位置に移動-------------------
 
 
+    #潜水位置へ移動--------------------------
+
+    #現在の向き取得
+    now_gps_data = get_gps_data()
+    now_lat = now_gps_data["ex"]
+
+    #direction:向き, distance:距離, set_rot:距離を元にスラスタ回転数計算
+    direction, distance, set_rot = get_direction_distance(start_lat,start_lng)
+
+    #左回り、右回りどちらが早いか計算
+    now_lot = now_lot - (int(now_lot / 90) * 90)
+    direction = direction - (int(now_lot / 90) * 90)
+
+    if (direction < 0):
+        direction = abs(direction) + 180
+
+    #回転
+    spinturn(direction)
+
+    #スラスタ回転数を指定し前進
+    go_back(set_rot)
+
+    #潜水位置へ移動--------------------------
+
+
+    #目的水深まで潜水------------------------
+
+    now_gps_data = get_gps_data()
+    depth = now_gps_data["depth"]
+
+
+    #目的水深まで潜水------------------------
+    
 # -----------------------------------------------------------------------------

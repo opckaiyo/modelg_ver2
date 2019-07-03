@@ -37,6 +37,9 @@ def get_direction_distance(goal_lat, goal_lng):
     if direction < -180:
         direction += 360
 
+    if direction < 0
+        direction = abs(direction) + 180
+
     # 距離を計算
     lat_distance = lat_length * 111263.283
     lng_distance = lng_length * 111263.283
